@@ -3,7 +3,7 @@
 ### Browser Userscripts
 Jordan Neufeld
 
-<img width="420" src="images/northfield_small.png"/>
+<img width="400" src="images/northfield_small.png"/>
 
 Note:
 Hello, and welcome to **Hacking your Productivity with Browser Userscripts**
