@@ -566,10 +566,10 @@ Let's explore some possibilities for solving this issue of alert fatigue:
 
 <img width="800" src="images/nagios-all-services-tampermonkey-zoomed.png">
 
-- Creates Jira ticket
-- Copies the created ticket URL to clipboard
-- Acknowledges Nagios Alert
-- Posts notification to Slack
+- Creates Jira ticket |
+- Copies the created ticket URL to clipboard |
+- Acknowledges Nagios Alert |
+- Posts notification to Slack |
 
 Note:
 I ended up choosing the third option.
@@ -578,9 +578,21 @@ I wrote a Userscript that would inject new functionality overtop of the existing
 You can see in the image above that there is a new jira logo button injected into the nagios DOM. This button is not native to nagios, but was injected by my userscript.
 
 When I click this button, the Userscript's javascript code does 4 things for me:
+
+**ADVANCE**
+
 - First, it makes a call to our Jira API to create a ticket based on the information that it scraped from the Nagios DOM. Including the Hostname, service name, and description fields. No more context switching!
+
+**ADVANCE**
+
 - Copies the URL to the ticket that it created to my clipboard, for convenience, for when I need update it.
+
+**ADVANCE**
+
 - Sends API call to Nagios to Acknowledge the Alert on my behalf, and it even includes the ticket number in the acknowledgement comment.
+
+**ADVANCE**
+
 - And finally, it will POST to a Slack Webhook on my behalf, so that my colleagues are alerted in Slack that I just created an incident ticket for this alert.
 
 ---
@@ -661,7 +673,7 @@ Fortunately for us, Tampermonkey has an API method that allows us to override th
 In order to take advantage of this new power, we need to add 2 more lines to our userscript header.
 The `@connect` directive in the header, specifically grants our userscript permission to make cross-domain http requests to the listed domain. 
 
-The `@grant` directive, which grants us the use of the special GM_xmlhttpRequest API method, which we can use to make these cross-domain calls that bypass the restrictions of the same-origin-policy.
+The `@grant` directive, permits us access to the GM_xmlhttpRequest API method, which we can use to make these cross-domain calls that bypass the restrictions of the same-origin-policy.
 
 ---
 
