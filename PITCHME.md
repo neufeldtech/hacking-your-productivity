@@ -1,11 +1,9 @@
----?image=images/northfield1.png&size=auto 100%
-
----
-
 ### Hacking Your Productivity
 ##### with
 ### Browser Userscripts
 Jordan Neufeld
+
+<img width="480" src="images/northfield_small.png"/>
 
 Note:
 Hello, and welcome to **Hacking your Productivity with Browser Userscripts**
